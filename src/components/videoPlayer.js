@@ -7,21 +7,23 @@ angular.module('video-player')
   //   console.log('clicked!!')
   //   this.currentVideo = video
   // }
-  // this.searchResults = () => {}
+  // this.searchResults = (video) => {}
   // console.log(this.videos)
+
 })
 
 .component('videoPlayer', {
+  controller: 'videoplayerCtrl',
   bindings: {
     video: '<'
   },
   template: `
-    <div class="video-player">
+    <div class="video-player" ng-controller="videoplayerCtrl">
     <div class="embed-responsive embed-responsive-16by9">
       <iframe class="embed-responsive-item" ng-src={{}} allowFullScreen></iframe>
     </div>
     <div class="video-player-details">
-      <h3>{{$ctrl.video.snippet.title}}</h3>
+      <h3 ng-click="$ctrl.searchResults()">{{$ctrl.video.snippet.title}}</h3>
       <div>{{$ctrl.video.snippet.description}}</div>
     </div>
   </div>

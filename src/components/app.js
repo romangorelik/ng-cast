@@ -1,6 +1,6 @@
 angular.module('video-player')
 
-.controller('appCtrl', function() {
+.controller('appCtrl', function($sce) {
   this.currentVideo = window.exampleVideoData[0];
   this.videos = window.exampleVideoData;
   this.selectVideo = (video) => {
@@ -8,6 +8,9 @@ angular.module('video-player')
     this.currentVideo = video
   }
   this.searchResults = () => {}
+  this.trustSce = () => {
+    
+  }
   console.log(this.videos)
 })
 

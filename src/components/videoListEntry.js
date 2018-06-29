@@ -9,8 +9,8 @@ angular.module('video-player')
         <img class="media-object" src="https://i.ytimg.com/vi/1w8Z0UOXVaY/default.jpg" />
       </div>
       <div class="media-body">
-        <div class="video-list-entry-title">{{vm.video.snippet.title}}</div>
-        <div class="video-list-entry-detail">{{vm.video.snippet.description}}</div>
+        <div class="video-list-entry-title">{{$ctrl.video.snippet.title}}</div>
+        <div class="video-list-entry-detail">{{$ctrl.video.snippet.description}}</div>
       </div>
     </li>
   `

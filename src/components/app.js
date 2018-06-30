@@ -1,27 +1,30 @@
 angular.module('video-player')
 
-.controller('appCtrl', function($sce) {
+.controller('appCtrl', function() {
   this.currentVideo = window.exampleVideoData[0];
   this.videos = window.exampleVideoData;
   this.selectVideo = (video) => {
-    console.log('clicked!!')
     this.currentVideo = video
   }
-  this.searchResults = () => {}
-  this.trustSce = () => {
-    
+  this.searchResults = (text) => {
+    console.log('clicked!!', text)
+  //   youTube(text)
+  //   .then((response) => {
+  //     console.log('SUCCESS: ', response)
+  //  })
+  //  .catch((err) => {
+  //     console.log('ERROR: ', err)
+  //  });
   }
-  console.log(this.videos)
 })
 
 .component('app', {
   controller: 'appCtrl',
   template: `
   <div id="app container" ng-controller="appCtrl as vm">
-
     <nav class="navbar">
       <div class="col-md-6 col-md-offset-3">
-        <search></search>
+        <search search="vm.searchResults"></search>
       </div>
     </nav>
     <div class="row">

@@ -1,20 +1,17 @@
 angular.module('video-player')
 
-.controller('appCtrl', function() {
+.controller('appCtrl', function($scope, youTube) {
   this.currentVideo = window.exampleVideoData[0];
   this.videos = window.exampleVideoData;
   this.selectVideo = (video) => {
     this.currentVideo = video
   }
   this.searchResults = (text) => {
-    console.log('clicked!!', text)
-  //   youTube(text)
-  //   .then((response) => {
-  //     console.log('SUCCESS: ', response)
-  //  })
-  //  .catch((err) => {
-  //     console.log('ERROR: ', err)
-  //  });
+    youTube.result(text, (videos) => {
+      console.log('VIDEOS:', videos)
+      this.videos = videos;
+      this.currentVideo = videos[0];
+    })
   }
 })
 
